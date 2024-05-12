@@ -23,7 +23,7 @@ void Menus::menu_top()
     FrameBuffer fb = app.buffers.getBuffer();
 
     ImGui::PushStyleVar(ImGuiStyleVar_FramePadding,ImVec2(4.0f, 16.0f));
-    ImGui::PushStyleVar(ImGuiStyleVar_ItemSpacing,ImVec2(32.0f, 4.0f));
+    ImGui::PushStyleVar(ImGuiStyleVar_ItemSpacing,ImVec2(16.0f, 4.0f));
     {   
         ImGui::SetNextWindowSize(io.DisplaySize);
         ImGui::SetNextWindowPos(ImVec2(0, 0));
@@ -44,21 +44,14 @@ void Menus::menu_top()
 
         if (ImGui::BeginMenuBar())
         {
-            ImDrawList* draw_list = ImGui::GetWindowDrawList();
-            draw_list->AddImage(
-                (void*)(intptr_t)logo.texture,
-                ImVec2(0+32, 0+8),
-                ImVec2(80+32, 80+8),
-                ImVec2(0, 0),
-                ImVec2(1, 1)
-            );
-            
-            ImGui::BeginDisabled();
-            if(ImGui::BeginMenu("     ")){
-                ImGui::EndMenu();
-            }
-            ImGui::EndDisabled();
+            ImGui::SetCursorPosY(ImGui::GetCursorPosY() + 12);
+            ImGui::Image((void*)(intptr_t)logo.texture, ImVec2(80, 80));
             ImGui::Separator();
+
+            ImGui::PushFont(app.ui24);
+            ImGui::SetCursorPosY(ImGui::GetCursorPosY() + 16);
+            ImGui::TextColored(ImVec4(0.39f, 0.39f, 0.39f, 1.00f), "FPS");
+            ImGui::PopFont();
 
             if (ImGui::BeginMenu(floatToFormattedString(fb.framerate).c_str()))
             {
@@ -69,6 +62,12 @@ void Menus::menu_top()
                 ImGui::EndMenu();
             }
             ImGui::Separator();
+
+            ImGui::PushFont(app.ui24);
+            ImGui::SetCursorPosY(ImGui::GetCursorPosY() + 16);
+            ImGui::TextColored(ImVec4(0.39f, 0.39f, 0.39f, 1.00f), "ISO");
+            ImGui::PopFont();
+
             if (ImGui::BeginMenu("   100"))
             {
                 ImGui::MenuItem("100");
@@ -78,6 +77,12 @@ void Menus::menu_top()
                 ImGui::EndMenu();
             }
             ImGui::Separator();
+
+            ImGui::PushFont(app.ui24);
+            ImGui::SetCursorPosY(ImGui::GetCursorPosY() + 16);
+            ImGui::TextColored(ImVec4(0.39f, 0.39f, 0.39f, 1.00f), "SHT");
+            ImGui::PopFont();
+
             if (ImGui::BeginMenu("   180°"))
             {
                 if (ImGui::MenuItem("45°")) {  }
@@ -132,23 +137,29 @@ void Menus::menu_top()
                 ImGui::EndMenu();
             }
             ImGui::Separator();
+
+            ImGui::PushFont(app.ui24);
+            ImGui::SetCursorPosY(ImGui::GetCursorPosY() + 16);
+            ImGui::TextColored(ImVec4(0.39f, 0.39f, 0.39f, 1.00f), "IRIS");
+            ImGui::PopFont();
+
             if (ImGui::BeginMenu("     ---"))
             {
                 ImGui::EndMenu();
             }
             ImGui::Separator();
+
+            ImGui::PushFont(app.ui24);
+            ImGui::SetCursorPosY(ImGui::GetCursorPosY() + 16);
+            ImGui::TextColored(ImVec4(0.39f, 0.39f, 0.39f, 1.00f), "WB");
+            ImGui::PopFont();
+
             if (ImGui::BeginMenu("  5600k"))
             {
 
                 ImGui::EndMenu();
             }
             ImGui::Separator();
-
-            draw_list->AddText(app.ui24, app.ui24->FontSize, ImVec2(180, 32), IM_COL32(100, 100, 100, 255), "FPS");
-            draw_list->AddText(app.ui24, app.ui24->FontSize, ImVec2(400, 32), IM_COL32(100, 100, 100, 255), "ISO");
-            draw_list->AddText(app.ui24, app.ui24->FontSize, ImVec2(580, 32), IM_COL32(100, 100, 100, 255), "SHT");
-            draw_list->AddText(app.ui24, app.ui24->FontSize, ImVec2(1005, 32), IM_COL32(100, 100, 100, 255), "IRIS");
-            draw_list->AddText(app.ui24, app.ui24->FontSize, ImVec2(1200, 32), IM_COL32(100, 100, 100, 255), "WB");
 
             ImGui::EndMenuBar();   
         }
