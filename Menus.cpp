@@ -92,51 +92,6 @@ void Menus::menu_top()
                 ImGui::EndMenu();
             }
             ImGui::Separator();
-            if (ImGui::BeginMenu(ICON_FA_COG))
-            {
-                if (ImGui::MenuItem("ZEBRA")) {}
-                if (ImGui::MenuItem("FOCUS")) {}
-                if (ImGui::BeginMenu("HISTOGRAM"))
-                { 
-                    if (ImGui::MenuItem("ENABLE")) {}
-                    if (ImGui::MenuItem("LUMA")) {}
-                    ImGui::EndMenu();
-                }
-                
-                if (ImGui::MenuItem("WAVE")) {}
-                if (ImGui::MenuItem("FALSE")) {}
-                if (ImGui::MenuItem("RGB")) {}
-
-                if(1){
-                    if (ImGui::BeginMenu("BAYER"))
-                    { 
-                        if (ImGui::MenuItem("SPLIT")) {}
-                        ImGui::EndMenu();
-                    }
-                }
-
-                if (ImGui::BeginMenu("OVERLAYS"))
-                { 
-                    if (ImGui::MenuItem("CROSS")) {}
-                    if (ImGui::MenuItem("THIRDS")) {}
-                    ImGui::EndMenu();
-                }
-                if (ImGui::MenuItem("DEMO")) { }
-                if (ImGui::BeginMenu("ZOOM"))
-                { 
-                    if (ImGui::MenuItem("1x")) { }
-                    if (ImGui::MenuItem("2x")) { }
-                    if (ImGui::MenuItem("4x")) { }
-                    if (ImGui::MenuItem("8x")) { }
-                    if (ImGui::MenuItem("16x")) { }
-                    ImGui::EndMenu();
-                }
-                ImGui::PushItemWidth(200);
-                // maybe crash here
-                // ImGui::SliderFloat("ZOOM", NULL, 0.0f, 16.0f);
-                ImGui::EndMenu();
-            }
-            ImGui::Separator();
 
             ImGui::PushFont(app.ui24);
             ImGui::SetCursorPosY(ImGui::GetCursorPosY() + 16);
@@ -157,6 +112,52 @@ void Menus::menu_top()
             if (ImGui::BeginMenu("  5600k"))
             {
 
+                ImGui::EndMenu();
+            }
+            ImGui::Separator();
+
+            if (ImGui::BeginMenu(ICON_FA_COG))
+            {
+                if (ImGui::MenuItem("ZEBRA")) {}
+                if (ImGui::MenuItem("FOCUS")) {}
+                if (ImGui::BeginMenu("HISTOGRAM"))
+                {
+                    if (ImGui::MenuItem("ENABLE")) {}
+                    if (ImGui::MenuItem("LUMA")) {}
+                    ImGui::EndMenu();
+                }
+
+                if (ImGui::MenuItem("WAVE")) {}
+                if (ImGui::MenuItem("FALSE")) {}
+                if (ImGui::MenuItem("RGB")) {}
+
+                if(1){
+                    if (ImGui::BeginMenu("BAYER"))
+                    {
+                        if (ImGui::MenuItem("SPLIT")) {}
+                        ImGui::EndMenu();
+                    }
+                }
+
+                if (ImGui::BeginMenu("OVERLAYS"))
+                {
+                    if (ImGui::MenuItem("CROSS")) {}
+                    if (ImGui::MenuItem("THIRDS")) {}
+                    ImGui::EndMenu();
+                }
+                if (ImGui::MenuItem("DEMO")) { }
+                if (ImGui::BeginMenu("ZOOM"))
+                {
+                    if (ImGui::MenuItem("1x")) { }
+                    if (ImGui::MenuItem("2x")) { }
+                    if (ImGui::MenuItem("4x")) { }
+                    if (ImGui::MenuItem("8x")) { }
+                    if (ImGui::MenuItem("16x")) { }
+                    ImGui::EndMenu();
+                }
+                ImGui::PushItemWidth(200);
+                // maybe crash here
+                // ImGui::SliderFloat("ZOOM", NULL, 0.0f, 16.0f);
                 ImGui::EndMenu();
             }
             ImGui::Separator();
