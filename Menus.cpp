@@ -127,7 +127,8 @@ void Menus::menu_top()
                     ImGui::EndMenu();
                 }
                 ImGui::PushItemWidth(200);
-                ImGui::SliderFloat("ZOOM", NULL, 0.0f, 16.0f);
+                // maybe crash here
+                // ImGui::SliderFloat("ZOOM", NULL, 0.0f, 16.0f);
                 ImGui::EndMenu();
             }
             ImGui::Separator();
